@@ -37,4 +37,13 @@ describe('isEven', function() {
       isEven('1.1e0');
     }, /expects an integer\.$/);
   });
+
+  it('should throw an error when a boolean is passed:', function() {
+    assert.throws(function() {
+      isEven(true);
+    }, /is-even expects a number\.$/);
+    assert.throws(function() {
+      isEven(false);
+    }, /is-even expects a number\.$/);
+  });
 });
