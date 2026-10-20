@@ -10,5 +10,8 @@
 var isOdd = require('is-odd');
 
 module.exports = function isEven(i) {
+  if (typeof i === 'boolean') {
+    throw new TypeError('is-even expects a number.');
+  }
   return !isOdd(i);
 };
