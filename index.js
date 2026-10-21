@@ -10,5 +10,9 @@
 var isOdd = require('is-odd');
 
 module.exports = function isEven(i) {
+  var n = Math.abs(i);
+  if (n > Number.MAX_SAFE_INTEGER) {
+    throw new RangeError('value exceeds maximum safe integer');
+  }
   return !isOdd(i);
 };
