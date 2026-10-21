@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "description": "is-even adopted board",
+  "project": {
+    "owner": "MISTERXYMISTER",
+    "title": "is-even Board",
+    "number": 1
+  },
+  "repo": {
+    "path": ".",
+    "remote": "https://github.com/MISTERXYMISTER/is-even"
+  },
+  "base_branch": "master",
+  "columns": [
+    "Backlog",
+    "Ready",
+    "Building",
+    "QA",
+    "Review",
+    "Blocked",
+    "Done"
+  ],
+  "labels": [
+    "qa",
+    "bug",
+    "feature"
+  ],
+  "verify_commands": ["/home/itachi/software-factory/scripts/contained-verify.sh npm test"],
+  "human_approves_merge": true,
+  "merge_policy": {
+    "default": "human",
+    "auto_max_lines": 1000
+  },
+  "baseline_verification": "PASSED",
+  "license": {
+    "type": "MIT",
+    "copyleft": false
+  }
+}
