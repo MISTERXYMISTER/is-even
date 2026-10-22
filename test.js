@@ -37,4 +37,38 @@ describe('isEven', function() {
       isEven('1.1e0');
     }, /expects an integer\.$/);
   });
+
+  it('should throw an error when value exceeds maximum safe integer:', function() {
+    assert.throws(function() {
+      isEven(9007199254740993);
+    }, /^RangeError: value exceeds maximum safe integer$/);
+
+    assert.throws(function() {
+      isEven('9007199254740993');
+    }, /^RangeError: value exceeds maximum safe integer$/);
+
+    assert.throws(function() {
+      isEven(-9007199254740993);
+    }, /^RangeError: value exceeds maximum safe integer$/);
+
+    assert.throws(function() {
+      isEven('-9007199254740993');
+    }, /^RangeError: value exceeds maximum safe integer$/);
+
+    assert.doesNotThrow(function() {
+      assert.strictEqual(isEven(9007199254740991), false);
+    });
+
+    assert.doesNotThrow(function() {
+      assert.strictEqual(isEven(9007199254740990), true);
+    });
+
+    assert.doesNotThrow(function() {
+      assert.strictEqual(isEven(-9007199254740991), false);
+    });
+
+    assert.doesNotThrow(function() {
+      assert.strictEqual(isEven(-9007199254740990), true);
+    });
+  });
 });
